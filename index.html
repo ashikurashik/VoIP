@@ -1,139 +1,180 @@
+
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <style>
         @page {
             size: A4;
             margin: 20mm;
-            background-color: #ffffff;
+            background-color: #fcfcfc;
         }
         body {
-            font-family: 'Arial', sans-serif;
-            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #2c3e50;
             line-height: 1.6;
-            padding: 10px;
+            margin: 0;
+            padding: 10px 30px 10px 30px;
         }
-        .header-box {
-            border-bottom: 3px solid #1a5276;
-            padding-bottom: 10px;
-            margin-bottom: 25px;
+        .header-banner {
+            background-color: #1a5276;
+            color: white;
+            padding: 30px;
             text-align: center;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 30px;
         }
-        h1 { color: #1a5276; font-size: 22pt; margin-bottom: 5px; }
-        h2 { color: #2471a3; font-size: 16pt; border-left: 5px solid #2471a3; padding-left: 10px; margin-top: 25px; }
-        h3 { color: #2e86c1; font-size: 13pt; }
-        .info-table {
+        .header-banner h1 { margin: 0; font-size: 22pt; }
+        .header-banner p { margin: 5px 0 0; font-size: 12pt; opacity: 0.9; }
+        
+        .container { padding: 0 10px; }
+        
+        .info-section {
+            display: table;
             width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
         }
-        .info-table td {
-            padding: 8px;
-            border: 1px solid #ddd;
+        .info-item { display: table-cell; width: 50%; font-size: 10pt; }
+        
+        h2 { 
+            color: #1a5276; 
+            font-size: 15pt; 
+            border-left: 5px solid #1a5276; 
+            padding-left: 12px; 
+            margin-top: 25px;
+            text-transform: uppercase;
         }
+        
+        h3 { color: #2980b9; font-size: 12pt; margin-bottom: 8px; }
+        
         .code-block {
-            background-color: #f4f4f4;
-            border: 1px solid #ccc;
-            padding: 10px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 10pt;
+            background-color: #2d3436;
+            color: #dfe6e9;
+            padding: 15px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 9.5pt;
             white-space: pre-wrap;
-            margin-bottom: 15px;
-            border-radius: 5px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border-left: 4px solid #00cec9;
         }
-        .step-box {
-            margin-bottom: 20px;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border-left: 4px solid #1a5276;
+        
+        .step-container {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #ffffff;
+            border: 1px solid #e1e8ed;
+            border-radius: 6px;
+        }
+        .footer img {
+	width: 13%;
+	padding-bottom: 0;
+	margin-bottom: -30px;
+}
+        
+        ul { padding-left: 20px; }
+        li { margin-bottom: 5px; }
+        
+        .footer {
+            margin-top: 60px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="header-box">
-        <h1>Assigment: Cisco VoIP Network Configuration</h1>
-        <p>Lab Topic: Basic Voice over IP (VoIP) Implementation</p>
+    <div class="header-banner">
+        <h1>LAB REPORT: VOIP NETWORK CONFIGURATION</h1>
+        <p>Implementation of Voice Services in a Cisco Environment</p>
     </div>
 
-    <table class="info-table">
-        <tr>
-            <td><strong>Course Name:</strong> Computer Networking / System Admin</td>
-            <td><strong>Date:</strong> April 24, 2026</td>
-        </tr>
-        <tr>
-            <td><strong>Submitted By:</strong> Md Ashikur Rahman</td>
-            <td><strong>Topic:</strong> Router & Switch Configuration</td>
-        </tr>
-    </table>
+    <div class="container">
+        <div class="info-section">
+            <div class="info-item">
+                <strong>Course:</strong> Computer Networking & Systems<br>
+                <strong>Topic:</strong> Router & Switch VoIP Setup
+            </div>
+            <div class="info-item" style="text-align: right;">
+                <strong>Submitted By:</strong> Md Ashikur Rahman<br>
+                <strong>Date:</strong> Aug 24, 2025
+            </div>
+        </div>
 
-    <h2>১. উদ্দেশ্য (Objective)</h2>
-    <p>এই ল্যাবের প্রধান উদ্দেশ্য হলো একটি নেটওয়ার্কে সিসকো আইপি ফোন (IP Phone) কনফিগার করা, VLAN তৈরি করা এবং রাউটারের মাধ্যমে টেলিফোনি সার্ভিস (Telephony Service) প্রদান করা।</p>
+        <h2>1. Objective</h2>
+        <p>The primary objective of this lab is to configure a functional Voice over IP (VoIP) network using a Cisco Router and Switch. This includes setting up a Voice VLAN, DHCP services for IP phones, and configuring Telephony Services to assign directory numbers.</p>
 
-    <h2>২. ব্যবহৃত ডিভাইসসমূহ (Required Devices)</h2>
-    <ul>
-        <li>১টি Cisco 2811 Router</li>
-        <li>১টি Cisco 2960 Switch</li>
-        <li>৪টি Cisco 7960 IP Phones</li>
-        <li>Straight-through Cables</li>
-    </ul>
+        <h2>2. Network Topology & Components</h2>
+        <ul>
+            <li><strong>Router:</strong> Cisco 2811 (Acting as a Call Manager Express)</li>
+            <li><strong>Switch:</strong> Cisco 2960 (Layer 2 Switching with Voice VLAN support)</li>
+            <li><strong>End Devices:</strong> 4x Cisco 7960 IP Phones</li>
+            <li><strong>Cabling:</strong> Copper Straight-Through</li>
+        </ul>
 
-    <h2>৩. কনফিগারেশন ধাপসমূহ (Step-by-Step Configuration)</h2>
-    
-    <div class="step-box">
-        <h3>ধাপ-১: সুইচ কনফিগারেশন (VLAN Setup)</h3>
-        <p>ভয়েস ট্রাফিককে ডাটা ট্রাফিক থেকে আলাদা রাখার জন্য VLAN 10 তৈরি করা হয়েছে।</p>
-        <div class="code-block">
+        <h2>3. Configuration Steps</h2>
+        
+        <div class="step-container">
+            <h3>Step 1: Switch Configuration (Voice VLAN)</h3>
+            <p>Define a specific VLAN to prioritize voice traffic and ensure quality of service (QoS).</p>
+            <div class="code-block">
+Switch> enable
+Switch# configure terminal
 Switch(config)# vlan 10
-Switch(config-vlan)# name VOICE
+Switch(config-vlan)# name VOICE_VLAN
+Switch(config-vlan)# exit
 Switch(config)# interface range fa0/1-6
 Switch(config-if-range)# switchport mode access
 Switch(config-if-range)# switchport voice vlan 10
+            </div>
         </div>
-    </div>
 
-    <div class="step-box">
-        <h3>ধাপ-২: রাউটার ইন্টারফেস ও DHCP সেটআপ</h3>
-        <p>আইপি ফোনগুলো স্বয়ংক্রিয়ভাবে আইপি অ্যাড্রেস পাওয়ার জন্য DHCP পুল তৈরি করা হয়েছে।</p>
-        <div class="code-block">
+        <div class="step-container">
+            <h3>Step 2: Router Sub-interface & DHCP</h3>
+            <p>Configure the router to handle Inter-VLAN routing and provide IP addresses automatically to the phones.</p>
+            <div class="code-block">
 Router(config)# interface fa0/0.10
 Router(config-subif)# encapsulation dot1Q 10
 Router(config-subif)# ip address 192.168.10.1 255.255.255.0
-Router(config)# ip dhcp pool VOICE_POOL
+Router(config)# ip dhcp pool VOICE_DHCP
 Router(dhcp-config)# network 192.168.10.0 255.255.255.0
 Router(dhcp-config)# default-router 192.168.10.1
 Router(dhcp-config)# option 150 ip 192.168.10.1
+            </div>
         </div>
-    </div>
 
-    <div class="step-box">
-        <h3>ধাপ-৩: টেলিফোনি সার্ভিস (Telephony Services)</h3>
-        <p>রাউটারে ভয়েস কল কন্ট্রোল করার জন্য সার্ভিস চালু করা হয়েছে।</p>
-        <div class="code-block">
+        <div class="step-container">
+            <h3>Step 3: Telephony Service Setup</h3>
+            <p>Enable Call Manager functions on the router to manage the IP phones.</p>
+            <div class="code-block">
 Router(config)# telephony-service
 Router(config-telephony)# max-dn 5
 Router(config-telephony)# max-ephones 5
 Router(config-telephony)# ip source-address 192.168.10.1 port 2000
 Router(config-telephony)# auto assign 1 to 5
+            </div>
         </div>
-    </div>
 
-    <div class="step-box">
-        <h3>ধাপ-৪: ফোন নম্বর বরাদ্দ (Directory Numbers)</h3>
-        <p>প্রতিটি ফোনের জন্য এক্সটেনশন নম্বর সেট করা হয়েছে।</p>
-        <div class="code-block">
+        <div class="step-container">
+            <h3>Step 4: Directory Number Assignment</h3>
+            <p>Assigning unique extension numbers (DN) to each connected phone.</p>
+            <div class="code-block">
 Router(config)# ephone-dn 1
 Router(config-ephone-dn)# number 101
 Router(config)# ephone-dn 2
 Router(config-ephone-dn)# number 102
+Router(config)# ephone-dn 3
+Router(config-ephone-dn)# number 103
+            </div>
         </div>
-    </div>
 
-    <h2>৪. ফলাফল ও পর্যবেক্ষণ (Result & Observation)</h2>
-    <p>সফলভাবে কনফিগারেশন শেষ করার পর প্রতিটি আইপি ফোন একটি ইউনিক আইপি এবং ডিরেক্টরি নম্বর পেয়েছে। এক ফোন থেকে অন্য ফোনে সফলভাবে কল করা সম্ভব হয়েছে এবং সংযোগটি স্থিতিশীল ছিল।</p>
+        <h2>4. Conclusion</h2>
+        <p>After completing the configuration, all IP phones successfully requested and received IP addresses from the DHCP pool. The Telephony Service correctly identified the devices and assigned the predefined directory numbers. Test calls between extensions 101, 102, and 103 were successful, confirming the network's readiness for voice communication.</p>
 
-    <div style="margin-top: 50px;">
-        <p><img src="../resized(1).jpg" alt=""><br>স্বাক্ষর</p>
+        <div class="footer">
+            <p><strong><img src="../resized(1).jpg" alt=""></strong><br> __________________________</p>
+        </div>
     </div>
 </body>
 </html>
